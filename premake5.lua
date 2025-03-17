@@ -10,6 +10,11 @@ workspace "Hazel-Tutor"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hazel-Tutor/vendor/GLFW/include"
+
+include "Hazel-Tutor/vendor/GLFW"
+
 project "Hazel-Tutor"
 	location "Hazel-Tutor"
 	kind "SharedLib"
@@ -29,8 +34,15 @@ project "Hazel-Tutor"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
-		"%{prj.name}/src"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
