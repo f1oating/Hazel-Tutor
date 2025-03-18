@@ -3,6 +3,8 @@
 
 #include "Hazel/Log.h"
 
+#include <glad/glad.h>
+
 namespace Hazel {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -53,6 +55,9 @@ namespace Hazel {
 	{
 		while (m_Running)
 		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
