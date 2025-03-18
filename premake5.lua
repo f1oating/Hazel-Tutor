@@ -1,5 +1,6 @@
 workspace "Hazel-Tutor"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -23,6 +24,7 @@ project "Hazel-Tutor"
 	location "Hazel-Tutor"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -55,7 +57,6 @@ project "Hazel-Tutor"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -72,23 +73,27 @@ project "Hazel-Tutor"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd /utf-8"
+		runtime "Debug"
+		buildoptions "/utf-8"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD /utf-8"
+		runtime "Release"
+		buildoptions "/utf-8"
 		optimize "On"	
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD /utf-8"
+		runtime "Release"
+		buildoptions "/utf-8"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -112,7 +117,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -122,15 +126,18 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd /utf-8"
+		runtime "Debug"
+		buildoptions "/utf-8"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD /utf-8"
+		runtime "Release"
+		buildoptions "/utf-8"
 		optimize "On"	
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD /utf-8"
+		runtime "Release"
+		buildoptions "/utf-8"
 		optimize "On"
