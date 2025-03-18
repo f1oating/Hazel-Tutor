@@ -4,3 +4,6 @@
 [submodule "Hazel-Tutor/vendor/GLFW"]
 	path = Hazel-Tutor/vendor/GLFW
 	url = https://github.com/TheCherno/GLFW
+[submodule "Hazel-Tutor/vendor/imgui"]
+	path = Hazel-Tutor/vendor/imgui
+	url = https://github.com/TheCherno/imgui

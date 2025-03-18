@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Hazel-Tutor/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hazel-Tutor/vendor/Glad/include"
+IncludeDir["imgui"] = "Hazel-Tutor/vendor/imgui"
 
 include "Hazel-Tutor/vendor/GLFW"
 include "Hazel-Tutor/vendor/Glad"
+include "Hazel-Tutor/vendor/imgui"
 
 project "Hazel-Tutor"
 	location "Hazel-Tutor"
@@ -39,13 +41,15 @@ project "Hazel-Tutor"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
+		"imgui",
 		"opengl32.lib"
 	}
 
@@ -68,17 +72,17 @@ project "Hazel-Tutor"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		buildoptions "/MDd /utf-8"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		buildoptions "/MD /utf-8"
 		optimize "On"	
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		buildoptions "/MD /utf-8"
 		optimize "On"
 
 project "Sandbox"
@@ -118,15 +122,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		buildoptions "/MDd /utf-8"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		buildoptions "/MD /utf-8"
 		optimize "On"	
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		buildoptions "/MD /utf-8"
 		optimize "On"
