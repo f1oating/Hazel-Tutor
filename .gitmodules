@@ -7,3 +7,6 @@
 [submodule "Hazel-Tutor/vendor/imgui"]
 	path = Hazel-Tutor/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Hazel-Tutor/vendor/glm"]
+	path = Hazel-Tutor/vendor/glm
+	url = https://github.com/g-truc/glm
