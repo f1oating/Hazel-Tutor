@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\KHR\khrplatofrm.h">
+    <ClInclude Include="include\KHR\khrplatform.h">
       <Filter>include\KHR</Filter>
     </ClInclude>
     <ClInclude Include="include\glad\glad.h">
